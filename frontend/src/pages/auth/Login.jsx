@@ -87,16 +87,15 @@ export default function Login() {
           New patient? <Link to="/register">Create an account</Link>
         </p>
         <p className="auth-alt small muted">
-          Doctor and admin accounts are provisioned by an administrator — ask your clinic admin for credentials.
+          Doctors and clinic staff: Contact your administrator for login details.
         </p>
       </section>
 
       <aside className="auth-hero">
         <div>
-          <h2>Healthcare scheduling without the phone tag.</h2>
+          <h2>Book your doctor's appointment in minutes.</h2>
           <p>
-            Qrus routes your symptoms to the right specialty, books a slot that cannot be double-booked, and
-            seats waitlisted patients the moment a cancellation frees a slot.
+            Find the right specialist, see live schedules, and join the waitlist to get seen faster.
           </p>
         </div>
 
@@ -105,21 +104,21 @@ export default function Login() {
             <span aria-hidden="true">🩺</span>
             <div>
               <strong>Symptom-to-specialty matching</strong>
-              <span>Describe what you feel; the router ranks the specialties that fit.</span>
+              <span>Tell us how you're feeling, and we'll connect you with the right doctor.</span>
             </div>
           </li>
           <li>
             <span aria-hidden="true">🗓️</span>
             <div>
               <strong>Real-time availability</strong>
-              <span>Slot grids update live over SSE — what you see is bookable now.</span>
+              <span>See exactly which times are open right now and book instantly.</span>
             </div>
           </li>
           <li>
             <span aria-hidden="true">🔒</span>
             <div>
-              <strong>Verified reviews &amp; full audit trail</strong>
-              <span>Only patients with a completed visit can review; every clinical action is logged.</span>
+              <strong>Verified reviews</strong>
+              <span>Read genuine feedback from patients after their completed visits.</span>
             </div>
           </li>
         </ul>

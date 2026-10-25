@@ -1,0 +1,11 @@
+# Never ship secrets or local state in the build context.
+**/.env
+**/.env.*
+!**/.env.example
+**/node_modules
+**/dist
+.tmp-pgdata/
+*.log
+.DS_Store
+.freebuff/
+freebuff/

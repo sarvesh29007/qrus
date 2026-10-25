@@ -1,0 +1,330 @@
+/* =============================================================================
+   Portal-specific styles: auth screens, the three dashboards, queue, schedule
+   editor, waitlist and the admin console.
+   ========================================================================== */
+
+/* ------------------------------------------------------------ auth screens */
+
+.auth-screen {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(320px, 460px) 1fr;
+}
+
+.auth-panel {
+  background: var(--white);
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--slate-200);
+}
+.auth-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--slate-900);
+  margin-bottom: 1.6rem;
+}
+.auth-panel h1 { margin-bottom: 0.3rem; }
+.auth-panel > p.muted { margin-bottom: 1.4rem; }
+.auth-form .form-field:last-of-type { margin-bottom: 1rem; }
+.auth-alt {
+  margin-top: 1.1rem;
+  font-size: 0.88rem;
+  color: var(--slate-500);
+}
+
+.auth-hero {
+  background:
+    radial-gradient(1000px 500px at 80% -10%, rgba(45, 212, 191, 0.35), transparent 60%),
+    linear-gradient(150deg, var(--slate-900), var(--teal-600) 140%);
+  color: var(--white);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.auth-hero h2 { color: var(--white); font-size: 2rem; max-width: 18ch; }
+.auth-hero p { color: rgba(255, 255, 255, 0.82); max-width: 52ch; }
+.hero-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+.hero-points li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.85rem;
+  font-size: 0.92rem;
+}
+.hero-points strong { display: block; color: var(--white); }
+.hero-points span { color: rgba(255, 255, 255, 0.78); font-size: 0.86rem; }
+
+.demo-creds {
+  margin-top: 1.5rem;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+  padding: 0.8rem 0.9rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.demo-creds code {
+  font-family: var(--mono);
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+}
+.demo-creds .btn { margin-top: 0.5rem; }
+
+@media (max-width: 900px) {
+  .auth-screen { grid-template-columns: 1fr; }
+  .auth-hero { display: none; }
+}
+
+/* ------------------------------------------------------------- dashboards */
+
+.welcome-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+}
+
+.queue-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.decision-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--slate-200);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.25rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr; }
+}
+
+.review-quote {
+  background: var(--slate-50);
+  border-left: 3px solid var(--teal-400);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.9rem;
+  color: var(--slate-700);
+  margin: 0 0 0.6rem;
+}
+.review-quote .muted { display: block; margin-top: 0.3rem; font-size: 0.78rem; }
+
+/* ---------------------------------------------------------- schedule editor */
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.9rem;
+}
+.schedule-day {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius);
+  padding: 0.85rem 0.95rem;
+}
+.schedule-day h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--slate-500);
+  margin-bottom: 0.55rem;
+}
+.window-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed var(--slate-100);
+}
+.window-row:last-of-type { border-bottom: none; }
+.window-row .window-time { flex: 1; font-weight: 600; color: var(--slate-700); }
+.window-row .window-meta { color: var(--slate-500); font-size: 0.78rem; }
+.window-form {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--slate-100);
+}
+.window-form .form-field { margin: 0; flex: 1 1 84px; }
+.window-form label { font-size: 0.7rem; margin-bottom: 0.15rem; }
+.window-form input,
+.window-form select { padding: 0.35rem 0.45rem; font-size: 0.84rem; }
+
+.override-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed var(--slate-100);
+  font-size: 0.9rem;
+}
+.override-row:last-child { border-bottom: none; }
+
+/* ---------------------------------------------------------------- waitlist */
+
+.wait-card {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
+}
+.wait-card + .wait-card { margin-top: 0.75rem; }
+.wait-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.wait-card-head h3 { margin: 0; }
+.wait-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.83rem;
+  color: var(--slate-500);
+  margin-top: 0.5rem;
+}
+.wait-position {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  background: var(--teal-50);
+  border: 1px solid var(--teal-100);
+  color: var(--teal-600);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.55rem;
+  font-weight: 700;
+}
+.wait-position small { color: var(--teal-600); opacity: 0.8; font-weight: 600; }
+
+.queue-rank {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--slate-100);
+  color: var(--slate-700);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.queue-rank.is-first { background: var(--teal-600); color: var(--white); }
+
+.urgency {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.urgency-urgent { color: var(--danger-600); }
+.urgency-soon { color: var(--warn-700); }
+.urgency-routine { color: var(--slate-500); }
+
+/* ------------------------------------------------------------ admin console */
+
+.recent-audit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.audit-line {
+  display: flex;
+  gap: 0.7rem;
+  align-items: baseline;
+  font-size: 0.84rem;
+  border-bottom: 1px dashed var(--slate-100);
+  padding-bottom: 0.4rem;
+}
+.audit-line:last-child { border-bottom: none; }
+.audit-line .al-action {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  background: var(--slate-100);
+  color: var(--slate-700);
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+}
+.audit-line .al-actor { color: var(--slate-500); }
+.audit-line .al-time { margin-left: auto; color: var(--slate-400); font-family: var(--mono); font-size: 0.74rem; }
+
+.moderation-card {
+  background: var(--white);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem;
+}
+.moderation-card + .moderation-card { margin-top: 0.75rem; }
+.moderation-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.rating-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #fffbeb;
+  border: 1px solid var(--warn-100);
+  color: #b45309;
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.5rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.moderation-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+  align-items: center;
+}
+.moderation-actions input { max-width: 260px; }
+
+.role-select { max-width: 150px; }
+
+.confirm-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--warn-50);
+  border: 1px solid var(--warn-100);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.7rem;
+  font-size: 0.85rem;
+  color: var(--warn-700);
+  margin-bottom: 0.75rem;
+}
